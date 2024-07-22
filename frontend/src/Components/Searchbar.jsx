@@ -138,9 +138,14 @@ const SearchBar = () => {
             {isFocused && searchTerm && suggestions.length > 0 && (
               <ul className="suggestions">
                 {suggestions.map((suggestion) => (
+                  // <li
+                  //   key={suggestion}
+                  //   onClick={() => handleSuggestionClick(suggestion)}>
+                  //   {suggestion}
+                  // </li>
                   <li
                     key={suggestion}
-                    onClick={() => handleSuggestionClick(suggestion)}>
+                    onMouseDown={() => handleSuggestionClick(suggestion)}>
                     {suggestion}
                   </li>
                 ))}
