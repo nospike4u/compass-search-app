@@ -1,9 +1,29 @@
-const {Router} = require('express');
-const {getAllData} = require('../Controllers/dataControllers.js');
+const express = require('express');
 
-const router = Router()
+const {
+  getAllData,
+  getAllDepartments,
+  getAllHardSkills,
+  getAllSoftSkills,
+  getAllSkills,
+  getAllTeams,
+  getAllPositions,
+  getAllLocations,
+} = require("../Controllers/dataControllers.js");
 
-router.get(`/`,getAllData)
+const router = express.Router();
 
-module.exports= router
+router.get(
+  `/`,
+  getAllData,
+  getAllDepartments,
+  getAllSkills,
+  getAllHardSkills,
+  getAllSoftSkills,
+  getAllSkills,
+  getAllTeams,
+  getAllPositions,
+  getAllLocations
+);
 
+module.exports = router;
