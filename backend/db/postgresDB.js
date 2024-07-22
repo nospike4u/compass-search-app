@@ -1,5 +1,5 @@
-import postgres from 'postgres';
-import dotenv from 'dotenv';
+const postgres = require('postgres');
+const dotenv= require('dotenv');
 
 dotenv.config();
 
@@ -20,8 +20,8 @@ const sql = postgres({
 async function getPgVersion() {
   const result = await sql`select version()`;
   console.log(result);
-}
+};
 
 getPgVersion();
 
-export default sql;
+module.exports = { sql };

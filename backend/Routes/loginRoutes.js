@@ -1,12 +1,12 @@
-import express from "express";
+const express= require('express');
 
-import {
+const {
   getAll,
   createPerson,
   getOnePerson,
   updatePerson,
   deletePerson,
-} from "../../Controllers/LoginControllers/index.js";
+} = require ('../Controllers/loginControllers.js');
 
 const router = express.Router();
 
@@ -18,4 +18,4 @@ router
   .put(updatePerson)
   .delete(deletePerson);
 
-export default router;
+module.exports = router;

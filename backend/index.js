@@ -1,52 +1,32 @@
 //General imports
-const express= require( "express");
-const cors = require("cors");
-const dotenv= require("dotenv");
-const neo4j = require('neo4j-driver-lite');
-const  {driver}  = require(`./db/neo4jDB.js`);
+const cors = require('cors');
+const dotenv= require('dotenv');
+const express = require( "express");
+const { driver }  = require(`./db/neo4jDB.js`);
 
+//Routers imports
 const dataRoutes = require('./Routes/dataRoutes.js');
+const loginRoutes = require ('./Routes/loginRoutes.js');
 
-
-dotenv.config();
-
-// const uri = process.env.NEO4J_URI;
-
-// console.log(username, password, uri);
 const PORT = 8000;
 const app = express();
 
-// const driver = neo4j.driver(username, neo4j.auth.basic('neo4j', password));
-
-
-
-//Routers imports
-// import router from "./Routes/LoginRoutes/index.js";
-
-
-app.use(cors({origin:"*"}));
+dotenv.config();
 app.use(express.json());
+app.use(cors({origin:"*"}));
 
-// connectDB();
-
+//Middleware stuff that I may get back to later
 // app.use((req, res, next) => {
 //   console.log(req.originalUrl);
 //   next();
 // })
 
-
 app.get(`/`, (req, res) => {
   res.send("Server is running");
 });
 
-
-
-
 app.use(`/api/v1/data`, dataRoutes);
-// app.use(`/api/v1/person`, loginRoutes);
-
-
-
+app.use(`/api/v1/person`, loginRoutes);
 
 app.get(`/*`, (req, res, next) => {
   const err = new Error(`Route does not exist`);
