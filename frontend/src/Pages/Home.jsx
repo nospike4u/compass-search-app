@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../Components/SearchBar";
+import SearchBar from "../Components/Searchbar";
 import FloatingBox from "../Components/FloatingBox";
 
 const Home = () => {
