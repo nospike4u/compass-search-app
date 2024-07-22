@@ -1,0 +1,129 @@
+.seach-bar-title {
+  color: #013f58;
+  padding: 1rem;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blueviolet;  TROUBLESHOOTING*/
+}
+
+.search-bar {
+  font-size: small;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  width: 40vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-bar input {
+  font-size: small;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px;
+  background-color: #f6f6f6;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.search-bar .suggestions {
+  width: 100%;
+  font-size: small;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.search-bar .suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-bar .suggestions li:hover {
+  background-color: #3a94c6;
+  color: white;
+}
+
+.search-bar .tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-bar .tag {
+  font-size: small;
+  display: inline-block;
+  background-color: #013f58;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 5px 10px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.search-bar .tag:hover {
+  background-color: #3a94c6;
+}
+
+.search-bar-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 10px;
+}
+
+.info-icon {
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+.search-header {
+  color: #052439;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+}
+
+.tooltip {
+  position: absolute;
+  top: 10px;
+  left: 150px;
+  transform: translateX(-50%);
+  backdrop-filter: blur(2px);
+  background-color: #0a4b65a3;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: medium;
+  white-space: nowrap;
+  z-index: 1000;
+  /* max-width: 300px;
+  height: auto; */
+  text-align: left;
+  padding: 1rem;
+  word-spacing: 4px;
+  font-style: italic;
+}
+
+.info-icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
