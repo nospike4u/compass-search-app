@@ -1,71 +1,55 @@
 //General imports
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import connectDB from "./db/db.js";
-
-dotenv.config();
-
-// const username = process.env.NEO4J_USERNAME;
-// const password = process.env.NEO4J_PASSWORD;
-// const uri = process.env.NEO4J_URI;
-
-// console.log(username, password, uri);
-
-const PORT = 8000;
+const cors = require('cors');
+const dotenv= require('dotenv');
+const express = require( "express");
+const { driver }  = require(`./db/neo4jDB.js`);
 
 //Routers imports
+const dataRoutes = require('./Routes/dataRoutes.js');
+const loginRoutes = require ('./Routes/loginRoutes.js');
 
+const PORT = 8000;
 const app = express();
 
-app.use(cors({origin:"*"}));
+dotenv.config();
 app.use(express.json());
+app.use(cors({origin:"*"}));
 
-connectDB();
+//Middleware stuff that I may get back to later
+// app.use((req, res, next) => {
+//   console.log(req.originalUrl);
+//   next();
+// })
 
-app.get("/", (req, res) => {
+app.get(`/`, (req, res) => {
   res.send("Server is running");
 });
 
-app.get(`/*`, (req, res) => {
-  res.status(404).send(`Route does not exist`);
+app.use(`/api/v1/data`, dataRoutes);
+app.use(`/api/v1/person`, loginRoutes);
+
+app.get(`/*`, (req, res, next) => {
+  const err = new Error(`Route does not exist`);
+  // res.status(404).send(`Route does not exist`);
+  err.status = 404;
+  next(err);
 });
 
-app.listen(PORT, () => {`Server is running on port ${PORT}`});
+//Error Handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({error: err.message,
+stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
+  }); 
+});
 
-// import express from 'express';
-// import neo4j from 'neo4j-driver';
-// const app = express();
 
-// const port = 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
-// import dotenv from "dotenv";
-// dotenv.config();
+// Close the Neo4j driver when the process exits
+process.on('exit', () => {
+  driver.close();
+});
 
-// const username = process.env.NEO4J_USERNAME;
-// const password = process.env.NEO4J_PASSWORD;
-// const uri = process.env.NEO4J_URI;
-
-// // Neo4j driver setup
-// const driver = neo4j.driver(uri, neo4j.auth.basic(username, password));
-// const session = driver.session();
-
-// // Example route to get data from Neo4j
-// app.get('/data', async (req, res) => {
-//     try {
-//         const result = await session.run('MATCH (n) RETURN n LIMIT 10');
-//         const records = result.records.map(record => record.get('n').properties);
-//         res.json(records);
-//     } catch (error) {
-//         console.error('Error retrieving data from Neo4j', error);
-//         res.status(500).send('Internal Server Error');
-//     }
-// });
-// // Start the server
-// app.listen(port, () => {
-//     console.log(`Server is running on http://localhost:${port}`);
-// });
-// // Close the Neo4j driver when the process exits
-// process.on('exit', () => {
-//     driver.close();
-// });
