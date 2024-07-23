@@ -1,4 +1,4 @@
-import neo4j from 'neo4j-driver';
+import neo4j from "neo4j-driver";
 // import neo4j from 'lib/browser/neo4j-web.esm.min.js'
 import dotenv from "dotenv";
 
@@ -24,21 +24,15 @@ console.log(username, password, uri);
 //   }
 // })();
 
-
 // export default connectDB ;
 
-
-
 let driver;
-driver = neo4j.driver(
-    uri,
-    neo4j.auth.basic(username, password), 
-  )
+driver = neo4j.driver(uri, neo4j.auth.basic(username, password));
 
-  let session = driver.session({
-    database: 'neo4j'
-  });
+let session = driver.session({
+  database: "neo4j",
+});
 
 driver.close();
 
-export default connectDB ;
+export default connectDB;
