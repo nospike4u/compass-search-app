@@ -8,6 +8,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+!node_modules/d3
+!node_modules/materialize-css
+!node_modules/neo4j-driver-lite
+!node_modules/popoto
+!node_modules/vis
 dist
 dist-ssr
 *.local
@@ -22,3 +27,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
