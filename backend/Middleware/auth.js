@@ -24,4 +24,4 @@ if(!token) {
 next();
 }
 
-module.exports = { auth1, auth2 };
+module.exports = { auth1, auth2};
