@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <SearchBar />
-      {/* <FloatingBox /> */}
+      <FloatingBox />
       <ContextMenu />
     </div>
   );

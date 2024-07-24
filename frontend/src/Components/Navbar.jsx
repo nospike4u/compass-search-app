@@ -45,7 +45,7 @@ const Navbar = () => {
           {isDropdownOpen && (
             <ul
               tabIndex={0}
-              className="menu menu-m dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-52 z-10"
+              className="menu menu-m dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-52 "
             >
               <li>
                 <Link to="/editprofile" className="justify-between">
