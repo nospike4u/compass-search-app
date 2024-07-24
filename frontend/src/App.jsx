@@ -7,9 +7,12 @@ import Footer from './Components/Footer.jsx';
 import Documentation from './Pages/Documentation.jsx';
 import EditProfile from './Pages/EditProfile.jsx';
 
+import X from './Components/X.jsx'
+
 function App() {
   return (
     <>
+      <X />
       <Navbar />
       <Routes>
         <Route
