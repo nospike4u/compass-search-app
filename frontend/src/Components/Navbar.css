@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #3a93c6;
+  height: 50px;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.compass {
+  color: #ffffff;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.profile-icon {
+  color: #ffffff;
+  align-items: center;
+}
+
+.doc {
+  color: #ffffff;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
