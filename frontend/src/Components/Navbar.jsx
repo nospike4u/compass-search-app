@@ -24,8 +24,8 @@ const Navbar = () => {
           <span className="compass ml-2">Compass</span>
         </Link>
       </div>
-      <div className="doc justify-self-end ">
-        <Link to="/documentation" className="flex space-x-1">
+      <div className="doc flex items-center ml-[70%]">
+        <Link to="/documentation" className="flex space-x-1 items-center">
           <HiOutlineDocumentText className="doc-icon text-xl" />
           <span className="text-m">Documentation</span>
         </Link>
