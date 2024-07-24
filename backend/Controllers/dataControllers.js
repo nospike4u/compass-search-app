@@ -1,11 +1,11 @@
-const { session } = require("../db/neo4jDB.js");
+const { session,driver } = require("../db/neo4jDB.js");
 
 // Example route to get data from Neo4j
 const getAllData = async (req, res) => {
   try {
     const result = await session.run("MATCH (n) RETURN n");
     const records = result.records.map((record) => record.get("n").properties);
-    res.json(records);
+    res.json({records,driver});
   } catch (error) {
     console.error("Error retrieving data from Neo4j", error);
     res.status(500).send("Internal Server Error");
@@ -101,6 +101,22 @@ const getAllLocations = async (req, res) => {
     }
   };
 
+  const getOnePerson = async (req, res) => {
+    const { id } = req.params;
+    try {
+      const result = await session.run(`MATCH p:Person WHERE p.id = ${id}) RETURN p`);
+      const records = result.records.map((record) => record.get("n").properties);
+      res.json(records);
+  
+      if (person.length === 0) {
+        return res.status(404).json({ error: `Person with id ${id} not found` });
+      }
+      res.status(200).json(person);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+
 module.exports = {
   getAllData,
   getAllSkills,
@@ -111,4 +127,5 @@ module.exports = {
   getAllPositions,
   getAllLocations,
   getAllProjects,
+  getOnePerson
 };

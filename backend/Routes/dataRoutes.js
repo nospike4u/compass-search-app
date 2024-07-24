@@ -9,21 +9,22 @@ const {
   getAllTeams,
   getAllPositions,
   getAllLocations,
+  getOnePerson
 } = require("../Controllers/dataControllers.js");
 
 const router = express.Router();
 
-router.get(
-  `/`,
-  getAllData,
-  getAllDepartments,
-  getAllSkills,
-  getAllHardSkills,
-  getAllSoftSkills,
-  getAllSkills,
-  getAllTeams,
-  getAllPositions,
-  getAllLocations
-);
+router.route(`/`).get(getAllData)
+    // ,
+    // getAllDepartments,
+    // getAllSkills,
+    // getAllHardSkills,
+    // getAllSoftSkills,
+    // getAllSkills,
+    // getAllTeams,
+    // getAllPositions,
+    // getAllLocations);
+
+ router.route(`/:id`).get(getOnePerson);   
 
 module.exports = router;

@@ -3,6 +3,8 @@ const cors = require('cors');
 const dotenv= require('dotenv');
 const express = require( "express");
 const { driver }  = require(`./db/neo4jDB.js`);
+const { auth1, auth2 } = require('./Middleware/auth.js');
+const expressSession = require('express-session');
 
 //Routers imports
 const dataRoutes = require('./Routes/dataRoutes.js');
@@ -21,12 +23,48 @@ app.use(cors({origin:"*"}));
 //   next();
 // })
 
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET,
+  resave: false, //needs to be set to true if working with cookies.
+  saveUninitialized: true,
+  cookie: { secure: false } //Set to true if using HTTPS on production.
+}));
+
+app.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  next();
+})
+
+//Middleware to check if user is authenticated
+const isAuthenticated = (req, res, next) => {
+  if(req.session.user) {
+    next();
+  } else {
+    res.status(401).json({message: "Unauthorized"});
+  }
+};  
+
+//Login middleware
+app.post(`/api/v1/login`, async (req, res) => {
+  const { email, password } = req.body;
+
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    return res.status(401).json({message: 'Invalid credentials'})
+  }
+
+});
+
 app.get(`/`, (req, res) => {
   res.send("Server is running");
 });
 
 app.use(`/api/v1/data`, dataRoutes);
-app.use(`/api/v1/person`, loginRoutes);
+// app.use(`/api/v1/data/:id`, dataRoutes);
+app.use(`/api/v1/person`, auth1, loginRoutes);
+app.use(`/api/v1/:token`, auth2, loginRoutes);
+// app.use(`/api/v1/person/:id`, loginRoutes);
 
 app.get(`/*`, (req, res, next) => {
   const err = new Error(`Route does not exist`);
