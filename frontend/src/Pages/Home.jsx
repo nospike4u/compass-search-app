@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import SearchBar from "../Components/Searchbar";
+import FloatingBox from "../Components/FloatingBox";
 
 const Home = () => {
   return (
-    <div>Home</div>
-  )
-}
+    <div>
+      <SearchBar />
+      <FloatingBox />
+    </div>
+  );
+};
 
 export default Home;
