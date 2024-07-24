@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  color: #013e57;
+  background-color: #f6f6f6;
+}
+
+.card-icon {
+  color: #013e57;
+}
+
+.card-btn:hover {
+  color: aquamarine;
+}
