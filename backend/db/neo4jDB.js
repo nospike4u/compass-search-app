@@ -10,5 +10,6 @@ const neo4j = require('neo4j-driver-lite');
 const driver = neo4j.driver(uri, neo4j.auth.basic(username, password));
 const session = driver.session();
 
-module.exports= {driver, session};
+
+module.exports= { driver, session };
 

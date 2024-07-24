@@ -3,6 +3,7 @@ const cors = require('cors');
 const dotenv= require('dotenv');
 const express = require( "express");
 const { driver }  = require(`./db/neo4jDB.js`);
+const { auth1, auth2 } = require('./Middleware/auth.js');
 
 //Routers imports
 const dataRoutes = require('./Routes/dataRoutes.js');
@@ -26,7 +27,9 @@ app.get(`/`, (req, res) => {
 });
 
 app.use(`/api/v1/data`, dataRoutes);
-app.use(`/api/v1/person`, loginRoutes);
+// app.use(`/api/v1/data/:id`, dataRoutes);
+app.use(`/api/v1/person`, auth1, loginRoutes);
+// app.use(`/api/v1/person/:id`, loginRoutes);
 
 app.get(`/*`, (req, res, next) => {
   const err = new Error(`Route does not exist`);
