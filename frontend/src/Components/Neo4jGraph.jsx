@@ -14,8 +14,8 @@ const Neo4jGraph = () => {
   useEffect(() => {
     // Connection with Neo4j database
     var driver = neo4j.driver(
-      "",
-      neo4j.auth.basic("", "")
+      "neo4j+s://9f5fe3c9.databases.neo4j.io",
+      neo4j.auth.basic("neo4j", "mzN82XArYXdE96ePdStUVFArXbZJO5amtA_D3N7WRVQ")
     );
     popoto.runner.DRIVER = driver;
 
@@ -105,8 +105,7 @@ const Neo4jGraph = () => {
       <div
         ref={cypherContainerRef}
         id="popoto-cypher"
-        className="ppt-container-query"
-      >
+        className="ppt-container-query">
         {/* Query viewer is generated here */}
       </div>
       <div className="ppt-section-header">
@@ -116,8 +115,7 @@ const Neo4jGraph = () => {
       <div
         ref={resultsContainerRef}
         id="popoto-results"
-        className="ppt-container-results"
-      >
+        className="ppt-container-results">
         {/* Results are generated here */}
       </div>
     </section>
