@@ -10,7 +10,6 @@ import EditProfile from "./Pages/EditProfile.jsx";
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-
       <Navbar />
       <div className="flex-grow">
         <Routes>
