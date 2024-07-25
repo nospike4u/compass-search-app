@@ -14,8 +14,8 @@ const Neo4jGraph = () => {
   useEffect(() => {
     // Connection with Neo4j database
     var driver = neo4j.driver(
-      "neo4j+s://9f5fe3c9.databases.neo4j.io",
-      neo4j.auth.basic("neo4j", "mzN82XArYXdE96ePdStUVFArXbZJO5amtA_D3N7WRVQ")
+      "",
+      neo4j.auth.basic("", "")
     );
     popoto.runner.DRIVER = driver;
 
