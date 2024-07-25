@@ -1,0 +1,92 @@
+/* Deine CSS-Datei, z.B. customPopotoStyles.css */
+
+/* Hintergrundfarbe der Hauptsektion ändern */
+.ppt-section-main {
+  background-color: #ffffff; /* Weißer Hintergrund */
+  color: #333333; /* Dunkle Schriftfarbe für besseren Kontrast */
+}
+
+/* Hintergrundfarbe des Graphen ändern */
+.ppt-div-graph {
+  background-color: #ffffff; /* Weißer Hintergrund */
+}
+
+/* Hintergrundfarbe des Query Viewers ändern */
+.ppt-container-query {
+  background-color: #f5f5f5; /* Leicht grauer Hintergrund */
+}
+
+/* Hintergrundfarbe der Ergebnisse ändern */
+.ppt-container-results {
+  background-color: #ffffff; /* Weißer Hintergrund */
+}
+
+/* Farbe der Header */
+.ppt-section-header {
+  background-color: #f0f0f0; /* Heller Hintergrund */
+  color: #333; /* Dunkle Schrift */
+}
+
+/* Beispiel für einen individuellen Stil für die Nodes */
+.ppt-node {
+  fill: #4a90e2; /* Blaue Füllfarbe für die Knoten */
+  stroke: #ffffff; /* Weiße Randfarbe */
+}
+
+/* Stil für ausgewählte Knoten */
+.ppt-node.selected {
+  fill: #ff8c00; /* Orange Füllfarbe für ausgewählte Knoten */
+  stroke: #000000; /* Schwarze Randfarbe */
+}
+
+/* Anpassen des Hintergrunds des SVG-Containers */
+.ppt-div-graph {
+  background-color: #ffffff; /* Weißer Hintergrund */
+}
+
+/* Anpassen der Knoten */
+.ppt-node {
+  fill: #4a90e2; /* Blaue Füllfarbe für Knoten */
+  stroke: #ffffff; /* Weiße Randfarbe */
+}
+
+/* Anpassen der Textfarbe in den Knoten */
+.ppt-node text {
+  fill: #333333; /* Dunkle Schriftfarbe */
+}
+
+/* Anpassen der Kantenfarbe */
+.ppt-link {
+  stroke: #95a5a6; /* Grau für Kanten */
+}
+
+/* Anpassen der Farbe für ausgewählte Knoten */
+.ppt-node.selected {
+  fill: #ff8c00; /* Orange Füllfarbe für ausgewählte Knoten */
+  stroke: #000000; /* Schwarze Randfarbe */
+}
+
+/* Anpassen der Schriftgröße in den Knoten */
+.ppt-node text {
+  font-size: 12px;
+}
+
+/* Hover-Effekt für Knoten */
+.ppt-node:hover {
+  fill: #6ca0dc; /* Hellblau für Knoten beim Hover */
+  stroke: #000000; /* Schwarzer Rand beim Hover */
+}
+
+/* Anpassen der Kantenstärke */
+.ppt-link {
+  stroke-width: 2px; /* Kantenbreite */
+}
+
+/* Anpassen der Knotenfarbe nach Label-Typ */
+.ppt-node[data-type="Person"] {
+  fill: #e74c3c; /* Rot für Person-Knoten */
+}
+
+.ppt-node[data-type="Movie"] {
+  fill: #3498db; /* Blau für Movie-Knoten */
+}
