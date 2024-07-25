@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <SearchBar />
       <TheMagic />
-      {/* <FloatingBox /> */}
+      <FloatingBox />
       <ContextMenu />
     </div>
   );
