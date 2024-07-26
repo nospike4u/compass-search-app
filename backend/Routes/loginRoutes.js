@@ -1,21 +1,17 @@
+
+const { Router } = require('express');
 const express= require('express');
 
 const {
-  getAll,
-  createPerson,
-  getOnePerson,
-  updatePerson,
-  deletePerson,
+  login, 
+  register,
+  logout,
 } = require ('../Controllers/loginControllers.js');
 
-const router = express.Router();
+const router = Router();
 
-router.route(`/`).get(getAll).post(createPerson);
-
-router
-  .route(`/:id`)
-  .get(getOnePerson)
-  .put(updatePerson)
-  .delete(deletePerson);
+router.post('/login', login);
+router.post('/register', register);
+router.post('/logout', logout);
 
 module.exports = router;

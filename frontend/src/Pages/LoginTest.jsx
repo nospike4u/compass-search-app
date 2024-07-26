@@ -1,67 +1,51 @@
-import axios from "axios";
-import Cookies from "js-cookie";
-import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
 
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+// import backgroundImage from "../assets/signUpBg.jpg";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { URL } from "../utils/localURL.js";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
-  const [password, setPassword] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  useEffect(() => {
-    const token = Cookies.get("token");
-    if (token) {
-      setIsAuthenticated(true);
-    }
-  }, []);
+  const handleReset = () => {
+    setEmail("");
+    setPassword("");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/api/v1/login", {
+      const newUser = {
         email,
         password,
-      });
-
-      if (response.status === 200) {
-        setMessage("Login successful");
-        toast.success("Login successfully!");
-        localStorage.setItem("token", response.token);
-        localStorage.setItem("email", response.email);
-        setError("");
-        const token = response.data.token;
-        Cookies.set("token", token), { expires: 1 };
-        setIsAuthenticated(true);
-
-        navigate("/");
-      }
+      };
+      const { data } = await axios.post(`${URL}/login`, newUser);
+      console.log(data.token);
+      console.log(data.email);
+      console.log(data.userName);
+      toast.success("Login successfully!");
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("email", data.email);
+      localStorage.setItem("userName", data.userName);
+      localStorage.setItem("userId", data.userId);
+      handleReset();
+      navigate("/home");
     } catch (error) {
-      setError("Invalid credentials");
       toast.error(error.response.data.message);
-      setMessage("");
     }
+  };
 
-    const handleLogout = async () => {
-      Cookies.remove("token");
-      setIsAuthenticated(false);
-      navigate("/login");
-    };
-
-    return (
-      <div
-        className="min-h-screen bg-cover bg-center flex items-center justify-center"
-        style={
-          {
-            // backgroundImage: `url(${backgroundImage})`,
-          }
-        }
-      >
+  return (
+    <div
+      className="min-h-screen bg-cover bg-center flex items-center justify-center"
+      style={{
+        // backgroundImage: `url(${backgroundImage})`,
+      }}
+    >
         <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -98,9 +82,14 @@ const Login = () => {
             Login
           </button>
         </form>
+        <p className="text-center text-white mt-4 text-sm">
+          Do not have an account?{" "}
+          <Link to="/signup" className="text-white  pl-2 hover:underline">
+            Sign up
+          </Link>
+        </p>
       </div>
-    );
-  };
+  );
 };
 
 export default Login;
