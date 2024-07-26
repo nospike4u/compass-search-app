@@ -46,6 +46,7 @@ const Login = () => {
       toast.error(error.response.data.message);
       setMessage("");
     }
+  }
 
     const handleLogout = async () => {
       Cookies.remove("token");
@@ -55,14 +56,15 @@ const Login = () => {
 
     return (
       <div
-        className="min-h-screen bg-cover bg-center flex items-center justify-center"
+        className="min-h-screen bg-cover bg-center items-center justify-center align-center flex flex-col"
+        
         style={
           {
             // backgroundImage: `url(${backgroundImage})`,
           }
         }
       >
-        <h2 className="text-3xl font-bold mb-6 text-center">Login</h2>
+ <h2 className="flex text-3xl font-bold mb-6 text-center">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-white text-left text-sm">Email</label>
@@ -101,6 +103,5 @@ const Login = () => {
       </div>
     );
   };
-};
 
 export default Login;
