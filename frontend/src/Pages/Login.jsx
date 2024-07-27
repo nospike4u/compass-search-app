@@ -62,13 +62,17 @@ const Login = () => {
   return (
     <div
       className="max-h-screen bg-cover bg-center justify-center items-center flex flex-col"
-      style={
-        {
-          // backgroundImage: `url(${backgroundImage})`,
-        }
-      }
     >
-      <h2 className="flex text-3xl font-bold mb-6 mt-20 text-center">Login</h2>
+            <div
+        className="text-white p-8 rounded shadow-md w-full max-w-md my-8"
+        style={{
+          background: "linear-gradient(to right, #013f58, #007bb0)",
+          WebkitBackdropFilter: "blur(5px)",
+          backdropFilter: "blur(5px)",
+          border: "1px solid rgba(102,224,2,0.1)",
+        }}
+      >
+      <h2 className=" text-3xl font-bold mb-6 text-center">Login</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-white text-left text-sm">Email</label>
@@ -93,15 +97,19 @@ const Login = () => {
           />
         </div>
         <button
-          // initialValue={{ scale: 0.9 }}
-          // whileHover={{ scale: 1.02 }}
-          // whileTap={{ scale: 0.9 }}
           type="submit"
           className="w-full bg-yellow-300 text-black p-2 rounded mt-4 font-bold hover:bg-orange-400"
         >
           Login
         </button>
       </form>
+      <p className="text-center text-white mt-4 text-sm">
+          Do not have an account?{" "}
+          <Link to="/register" className="text-[#fff] pl-2 hover:underline">
+          Register here
+          </Link>
+        </p>
+        </div>
     </div>
   );
 };
