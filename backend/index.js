@@ -1,13 +1,12 @@
 //General imports
-const cors = require('cors');
-const dotenv= require('dotenv');
-const express = require( "express");
-const jwt = require('jsonwebtoken');
-const bcrypt = require("bcryptjs");
-const {generateToken, verifyToken } = require('./utils/auth.js');
+import cors from 'cors';
+import dotenv from 'dotenv';
+import express from 'express';
+import connectDB from './db/mongooseDB.js';
 
 //Routers imports
-const loginRoutes = require ('./Routes/loginRoutes.js');
+import loginRoutes from './Routes/loginRoutes.js';
+import usersRoutes from './Routes/usersRoutes.js';
 
 const PORT = 8000;
 const app = express();
@@ -16,17 +15,13 @@ dotenv.config();
 app.use(express.json());
 app.use(cors({origin:"*"}));
 
-//Middleware stuff that I may get back to later
-// app.use((req, res, next) => {
-//   console.log(req.originalUrl);
-//   next();
-// })
+connectDB();
 
 app.get(`/`, (req, res) => {
   res.send("Server is running");
 });
 
-app.use(`/api/v1/`, loginRoutes);
+app.use(`/api/v1`, loginRoutes);
 app.use(`/api/v1/users/`, usersRoutes);
 
 app.get(`/*`, (req, res, next) => {
@@ -36,13 +31,13 @@ app.get(`/*`, (req, res, next) => {
   next(err);
 });
 
-// //Error Handler middleware
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(err.status || 500).json({error: err.message,
-// stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
-//   }); 
-// });
+//Error Handler middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(err.status || 500).json({error: err.message,
+stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
+  }); 
+});
 
 
 app.listen(PORT, () => {

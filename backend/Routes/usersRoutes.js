@@ -1,12 +1,12 @@
-const { Router } = require('express');
-const {
+import { Router } from 'express';
+import {
   getAllUsers,
   getSingleUser,
   createSingleUser,
   updateSingleUser,
   deleteSingleUser,
-} = require('../Controllers/usersControllers.js');
-const { isOwnerOrAdmin, isAuthenticated } = require('../Middleware/loginMiddleware.js');
+} from '../Controllers/usersControllers.js';
+import { isOwnerOrAdmin, isAuthenticated } from '../Middleware/loginMiddleware.js';
 
 const router = Router();
 
@@ -16,7 +16,7 @@ router.post('/', createSingleUser);
 
 router.get('/:id', isAuthenticated, getSingleUser);
 
-router.put('/:id', isAuthenticated, updateSingleUser);
-router.delete('/:id', deleteSingleUser);
+router.put('/:id', isAuthenticated, isOwnerOrAdmin, updateSingleUser);
+router.delete('/:id', isAuthenticated, isOwnerOrAdmin, deleteSingleUser);
 
-module.exports = router;
+export default router;

@@ -12,6 +12,7 @@ const Navbar = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+
   return (
     <div className="navbar flex justify-between items-center px-[30px]">
       <div className="flex items-center">
@@ -55,7 +56,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link to="/">Logout</Link>
+                <Link to="/login">Logout</Link>
               </li>
             </ul>
           )}

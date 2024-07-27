@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <SearchBar />
-      {/* <Neo4jGraph /> */}
+      <Neo4jGraph />
       {/* <TheMagic /> */}
       {/* <FloatingBox /> */}
       <ContextMenu />

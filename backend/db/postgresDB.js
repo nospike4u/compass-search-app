@@ -1,5 +1,5 @@
-const postgres = require('postgres');
-const dotenv= require('dotenv');
+import postgres from 'postgres';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -24,4 +24,4 @@ async function getPgVersion() {
 
 getPgVersion();
 
-module.exports = { sql };
+export { sql };

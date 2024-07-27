@@ -1,12 +1,11 @@
+// Initiate express router
+import { Router } from 'express';
 
-const { Router } = require('express');
-const express= require('express');
-
-const {
+import {
   login, 
   register,
   logout,
-} = require ('../Controllers/loginControllers.js');
+} from '../Controllers/loginControllers.js';
 
 const router = Router();
 
@@ -14,4 +13,4 @@ router.post('/login', login);
 router.post('/register', register);
 router.post('/logout', logout);
 
-module.exports = router;
+export default router;

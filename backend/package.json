@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "dev": "nodemon index.js",
-    "neo": "nodemon index2.js"
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,8 @@
     "express-session": "^1.18.0",
     "express-validator": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1",
     "neo4j-driver": "^1.7.8",
     "neo4j-driver-core": "^5.22.0",
     "neo4j-driver-lite": "^5.22.0",
