@@ -6,15 +6,16 @@ import Home from "./Pages/Home.jsx";
 import Footer from "./Components/Footer.jsx";
 import Documentation from "./Pages/Documentation.jsx";
 import EditProfile from "./Pages/EditProfile.jsx";
+import Register from "./Components/Register.jsx";
 
 function App() {
   return (
     <div className="flex flex-col min-h-screen">
-
       <Navbar />
       <div className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />}></Route>
+          <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/documentation" element={<Documentation />}></Route>
           <Route path="/editprofile" element={<EditProfile />}></Route>

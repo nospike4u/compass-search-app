@@ -78,7 +78,7 @@ const Neo4jGraph = () => {
 
     // Initialise Popoto diagram
     driver
-      .verifyConnectivity()
+      .getServerInfo()
       .then(function () {
         popoto.start("Person");
       })

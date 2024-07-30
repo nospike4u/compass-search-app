@@ -1,21 +1,16 @@
-const express= require('express');
+// Initiate express router
+import { Router } from 'express';
 
-const {
-  getAll,
-  createPerson,
-  getOnePerson,
-  updatePerson,
-  deletePerson,
-} = require ('../Controllers/loginControllers.js');
+import {
+  login, 
+  register,
+  logout,
+} from '../Controllers/loginControllers.js';
 
-const router = express.Router();
+const router = Router();
 
-router.route(`/`).get(getAll).post(createPerson);
+router.post('/login', login);
+router.post('/register', register);
+router.post('/logout', logout);
 
-router
-  .route(`/:id`)
-  .get(getOnePerson)
-  .put(updatePerson)
-  .delete(deletePerson);
-
-module.exports = router;
+export default router;
