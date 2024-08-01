@@ -1,0 +1,215 @@
+Our company, Dummy Company, is a leading provider of innovative tech solutions. We specialize in software development, data analytics, and artificial intelligence. Our mission is to drive technological advancement and create value for our clients.
+
+// Erstelle Firmenknoten
+CREATE (TheBizz:Company {name: 'The Bizz'})
+
+// Erstelle Standorte
+CREATE (Berlin:Location {LocationName: 'Berlin'})
+CREATE (Darmstadt:Location {LocationName: 'Darmstadt'})
+CREATE (Bonn:Location {LocationName: 'Bonn'})
+CREATE (Munich:Location {LocationName: 'Munich'})
+CREATE (Hamburg:Location {LocationName: 'Hamburg'})
+CREATE (AllLocations:Locations {AllLocationsName: 'Locations'})
+CREATE (Berlin)-[:BELONGS_TO]->(AllLocations)
+CREATE (Darmstadt)-[:BELONGS_TO]->(AllLocations)
+CREATE (Bonn)-[:BELONGS_TO]->(AllLocations)
+CREATE (Munich)-[:BELONGS_TO]->(AllLocations)
+CREATE (Hamburg)-[:BELONGS_TO]->(AllLocations)
+
+// Erstelle Abteilungen
+CREATE (ManagementDepartment:TopDepartment {TopDepartmentName: 'Management Department'})
+CREATE (ManagementDepartment)-[:BELONGS_TO]->(TheBizz)
+CREATE (TechDepartment:Department {DepartmentName: 'Tech Department', Description: 'Handles all technical aspects.'})
+CREATE (HRDepartment:Department {DepartmentName: 'HR Department', Description: 'Handles human resources and recruitment.'})
+CREATE (FinanceDepartment:Department {DepartmentName: 'Finance Department', Description: 'Manages financial operations.'})
+CREATE (SalesDepartment:Department {DepartmentName: 'Sales Department', Description: 'Oversees sales and client relationships.'})
+CREATE (MarketingDepartment:Department {DepartmentName: 'Marketing Department', Description: 'Handles marketing and branding.'})
+CREATE (OperationsDepartment:Department {DepartmentName: 'Operations Department', Description: 'Manages daily operations.'})
+CREATE (LegalDepartment:Department {DepartmentName: 'Legal Department', Description: 'Handles legal affairs and compliance.'})
+CREATE (ProductDepartment:Department {DepartmentName: 'Product Department', Description: 'Focuses on product development and management.'})
+CREATE (DesignDepartment:Department {DepartmentName: 'Design Department', Description: 'Responsible for design and user experience.'})
+CREATE (CustomerSupportDepartment:Department {DepartmentName: 'Customer Support Department', Description: 'Handles customer service and support.'})
+CREATE (ManagementDepartment)-[:LOCATED_IN]->(Berlin)
+CREATE (TechDepartment)-[:LOCATED_IN]->(Darmstadt)
+CREATE (HRDepartment)-[:LOCATED_IN]->(Bonn)
+CREATE (FinanceDepartment)-[:LOCATED_IN]->(Munich)
+CREATE (SalesDepartment)-[:LOCATED_IN]->(Hamburg)
+CREATE (MarketingDepartment)-[:LOCATED_IN]->(Berlin)
+CREATE (OperationsDepartment)-[:LOCATED_IN]->(Darmstadt)
+CREATE (LegalDepartment)-[:LOCATED_IN]->(Bonn)
+CREATE (ProductDepartment)-[:LOCATED_IN]->(Munich)
+CREATE (DesignDepartment)-[:LOCATED_IN]->(Hamburg)
+CREATE (CustomerSupportDepartment)-[:LOCATED_IN]->(Berlin)
+
+// Erstelle Teams
+CREATE (FrontendTeam:Team {TeamName: 'Frontend Team', Description: 'Develops user interfaces.'})
+CREATE (BackendTeam:Team {TeamName: 'Backend Team', Description: 'Handles server-side logic.'})
+CREATE (DataTeam:Team {TeamName: 'Data Team', Description: 'Manages data and analytics.'})
+CREATE (ProjectTeam:Team {TeamName: 'Project Team', Description: 'Coordinates project activities.'})
+CREATE (SalesTeam:Team {TeamName: 'Sales Team', Description: 'Handles sales and client interactions.'})
+CREATE (CustomerSupportTeam:Team {TeamName: 'Customer Support Team', Description: 'Provides support to clients.'})
+CREATE (MarketingTeam:Team {TeamName: 'Marketing Team', Description: 'Focuses on marketing campaigns.'})
+CREATE (DesignTeam:Team {TeamName: 'Design Team', Description: 'Responsible for design and branding.'})
+CREATE (ProductTeam:Team {TeamName: 'Product Team', Description: 'Handles product development.'})
+CREATE (ITTeam:Team {TeamName: 'IT Team', Description: 'Manages IT infrastructure and support.'})
+CREATE (FinanceTeam:Team {TeamName: 'Finance Team', Description: 'Handles financial planning and reporting.'})
+CREATE (HRTeam:Team {TeamName: 'HR Team', Description: 'Manages human resources and recruitment.'})
+CREATE (LegalTeam:Team {TeamName: 'Legal Team', Description: 'Handles legal matters.'})
+CREATE (OperationsTeam:Team {TeamName: 'Operations Team', Description: 'Oversees daily operations.'})
+CREATE (InnovationTeam:Team {TeamName: 'Innovation Team', Description: 'Focuses on innovative solutions.'})
+CREATE (SalesSupportTeam:Team {TeamName: 'Sales Support Team', Description: 'Supports sales and client interactions.'})
+
+// Erstelle Fähigkeiten
+CREATE (AllSkills:Skills {AllSkillsName: 'Skills'})
+CREATE (Java:HardSkill {HardSkillsName: 'Java'})
+CREATE (Python:HardSkill {HardSkillsName: 'Python'})
+CREATE (JavaScript:HardSkill {HardSkillsName: 'JavaScript'})
+CREATE (SQL:HardSkill {HardSkillsName: 'SQL'})
+CREATE (HTML:HardSkill {HardSkillsName: 'HTML'})
+CREATE (CSS:HardSkill {HardSkillsName: 'CSS'})
+CREATE (Photoshop:HardSkill {HardSkillsName: 'Photoshop'})
+CREATE (Cybersecurity:HardSkill {HardSkillsName: 'Cybersecurity'})
+CREATE (Salesforce:HardSkill {HardSkillsName: 'Salesforce'})
+CREATE (CloudComputing:HardSkill {HardSkillsName: 'Cloud Computing'})
+CREATE (MachineLearning:HardSkill {HardSkillsName: 'Machine Learning'})
+CREATE (BigData:HardSkill {HardSkillsName: 'Big Data'})
+CREATE (SAP:HardSkill {HardSkillsName: 'SAP'})
+CREATE (SQLServer:HardSkill {HardSkillsName: 'SQL Server'})
+CREATE (Blockchain:HardSkill {HardSkillsName: 'Blockchain'})
+CREATE (Creativity:SoftSkill {SoftSkillsName: 'Creativity'})
+CREATE (Teamwork:SoftSkill {SoftSkillsName: 'Teamwork'})
+CREATE (ProblemSolving:SoftSkill {SoftSkillsName: 'Problem Solving'})
+CREATE (Communication:SoftSkill {SoftSkillsName: 'Communication'})
+CREATE (Leadership:SoftSkill {SoftSkillsName: 'Leadership'})
+CREATE (Adaptability:SoftSkill {SoftSkillsName: 'Adaptability'})
+CREATE (TimeManagement:SoftSkill {SoftSkillsName: 'Time Management'})
+CREATE (CriticalThinking:SoftSkill {SoftSkillsName: 'Critical Thinking'})
+CREATE (Empathy:SoftSkill {SoftSkillsName: 'Empathy'})
+CREATE (Negotiation:SoftSkill {SoftSkillsName: 'Negotiation'})
+CREATE (ConflictResolution:SoftSkill {SoftSkillsName: 'Conflict Resolution'})
+CREATE (Presentation:SoftSkill {SoftSkillsName: 'Presentation'})
+CREATE (Networking:SoftSkill {SoftSkillsName: 'Networking'})
+CREATE (DecisionMaking:SoftSkill {SoftSkillsName: 'Decision Making'})
+CREATE (StrategicThinking:SoftSkill {SoftSkillsName: 'Strategic Thinking'})
+CREATE (HardSkill)-[:BELONGS_TO]->(AllSkills)
+CREATE (SoftSkill)-[:BELONGS_TO]->(AllSkills)
+
+// Erstelle Positionen
+CREATE (JuniorBackendEngineer:Position {PositionName: 'Junior Backend Engineer', Description: 'Handles backend development tasks.'})
+CREATE (SeniorBackendEngineer:Position {PositionName: 'Senior Backend Engineer', Description: 'Leads backend development projects.'})
+CREATE (FrontendDeveloper:Position {PositionName: 'Frontend Developer', Description: 'Specializes in user interface development.'})
+CREATE (SeniorFrontendDeveloper:Position {PositionName: 'Senior Frontend Developer', Description: 'Leads frontend development projects.'})
+CREATE (DataAnalyst:Position {PositionName: 'Data Analyst', Description: 'Analyzes data to provide insights.'})
+CREATE (SeniorDataAnalyst:Position {PositionName: 'Senior Data Analyst', Description: 'Leads data analysis projects.'})
+CREATE (ProjectManager:Position {PositionName: 'Project Manager', Description: 'Manages project execution and delivery.'})
+CREATE (SalesManager:Position {PositionName: 'Sales Manager', Description: 'Oversees sales strategies and team.'})
+CREATE (HRSpecialist:Position {PositionName: 'HR Specialist', Description: 'Handles HR functions and employee relations.'})
+CREATE (FinanceManager:Position {PositionName: 'Finance Manager', Description: 'Manages financial planning and reporting.'})
+CREATE (OperationsManager:Position {PositionName: 'Operations Manager', Description: 'Optimizes operational processes.'})
+CREATE (LegalAdvisor:Position {PositionName: 'Legal Advisor', Description: 'Provides legal guidance and support.'})
+CREATE (MarketingManager:Position {PositionName: 'Marketing Manager', Description: 'Develops and implements marketing strategies.'})
+CREATE (DesignSpecialist:Position {PositionName: 'Design Specialist', Description: 'Focuses on design and branding.'})
+CREATE (ProductManager:Position {PositionName: 'Product Manager', Description: 'Manages product development and strategy.'})
+CREATE (ITManager:Position {PositionName: 'IT Manager', Description: 'Oversees IT infrastructure and projects.'})
+CREATE (CybersecurityExpert:Position {PositionName: 'Cybersecurity Expert', Description: 'Protects company data from cyber threats.'})
+CREATE (CustomerServiceManager:Position {PositionName: 'Customer Service Manager', Description: 'Manages customer service operations.'})
+CREATE (SalesAnalyst:Position {PositionName: 'Sales Analyst', Description: 'Analyzes sales data and trends.'})
+CREATE (FinanceAnalyst:Position {PositionName: 'Finance Analyst', Description: 'Assists in financial analysis and reporting.'})
+CREATE (ProductAnalyst:Position {PositionName: 'Product Analyst', Description: 'Analyzes product performance and trends.'})
+CREATE (InnovationManager:Position {PositionName: 'Innovation Manager', Description: 'Leads innovation and R&D projects.'})
+CREATE (HRManager:Position {PositionName: 'HR Manager', Description: 'Oversees HR activities and strategy.'})
+CREATE (SalesSupportSpecialist:Position {PositionName: 'Sales Support Specialist', Description: 'Provides support to the sales team.'})
+CREATE (OperationsAnalyst:Position {PositionName: 'Operations Analyst', Description: 'Analyzes and improves operations processes.'})
+CREATE (CustomerExperienceManager:Position {PositionName: 'Customer Experience Manager', Description: 'Enhances customer experience and satisfaction.'})
+
+// Erstelle Projekte
+CREATE (AllProjects:Projects {name: 'Projects', Description: 'All projects at The Bizz'})
+CREATE (ProjectApollo:Project {title: 'Project Apollo', Description: 'A major project focused on developing a new product.'})
+CREATE (ProjectZeus:Project {title: 'Project Zeus', Description: 'A project aimed at improving internal systems.'})
+CREATE (ProjectHera:Project {title: 'Project Hera', Description: 'A marketing project to enhance brand visibility.'})
+CREATE (ProjectAres:Project {title: 'Project Ares', Description: 'A project for launching a new service.'})
+CREATE (ProjectAthena:Project {title: 'Project Athena', Description: 'A research project in data analysis.'})
+CREATE (ProjectPoseidon:Project {title: 'Project Poseidon', Description: 'A development project for cloud-based solutions.'})
+CREATE (ProjectHermes:Project {title: 'Project Hermes', Description: 'An operations project to streamline processes.'})
+CREATE (ProjectDemeter:Project {title: 'Project Demeter', Description: 'A product enhancement project.'})
+CREATE (ProjectHades:Project {title: 'Project Hades', Description: 'A cybersecurity improvement initiative.'})
+CREATE (ProjectEros:Project {title: 'Project Eros', Description: 'A new CRM system development project.'})
+CREATE (ProjectAthena2:Project {title: 'Project Athena 2', Description: 'An extension of the data analysis project.'})
+CREATE (ProjectNyx:Project {title: 'Project Nyx', Description: 'An internal communication tool development.'})
+CREATE (ProjectSelene:Project {title: 'Project Selene', Description: 'A customer feedback and survey system.'})
+CREATE (ProjectTartarus:Project {title: 'Project Tartarus', Description: 'An infrastructure upgrade project.'})
+CREATE (ProjectRhea:Project {title: 'Project Rhea', Description: 'A supply chain optimization project.'})
+CREATE (ProjectHera2:Project {title: 'Project Hera 2', Description: 'A global marketing campaign.'})
+CREATE (ProjectAphrodite:Project {title: 'Project Aphrodite', Description: 'An e-commerce platform development.'})
+CREATE (ProjectArtemis:Project {title: 'Project Artemis', Description: 'A project focused on mobile app development.'})
+CREATE (ProjectPersephone:Project {title: 'Project Persephone', Description: 'An HR management system upgrade.'})
+CREATE (ProjectDionysus:Project {title: 'Project Dionysus', Description: 'A new client onboarding system.'})
+CREATE (ProjectHercules:Project {title: 'Project Hercules', Description: 'A performance tracking system.'})
+CREATE (ProjectHermes2:Project {title: 'Project Hermes 2', Description: 'An advanced analytics tool.'})
+CREATE (ProjectPan:Project {title: 'Project Pan', Description: 'A new product line expansion.'})
+CREATE (ProjectIcarus:Project {title: 'Project Icarus', Description: 'A cloud infrastructure project.'})
+CREATE (ProjectChronos:Project {title: 'Project Chronos', Description: 'A time management software.'})
+CREATE (ProjectHades2:Project {title: 'Project Hades 2', Description: 'A disaster recovery plan development.'})
+CREATE (ProjectElysium:Project {title: 'Project Elysium', Description: 'A customer loyalty program.'})
+CREATE (ProjectGaia:Project {title: 'Project Gaia', Description: 'An environmental impact project.'})
+CREATE (ProjectAtlas:Project {title: 'Project Atlas', Description: 'A global expansion strategy.'})
+CREATE (ProjectVulcan:Project {title: 'Project Vulcan', Description: 'A manufacturing efficiency project.'})
+CREATE (ProjectNemesis:Project {title: 'Project Nemesis', Description: 'A competitive analysis project.'})
+
+// Erstelle Mitarbeiter und deren Fähigkeiten
+WITH [
+  {firstName: 'Dominic', lastName: 'Spike', email: 'dominic.spike@thebizz.com', phone: '+491234567123', description: 'Backend developer with a focus on SQL databases.', softSkills: ['Teamwork', 'Problem Solving', 'Time Management'], hardSkills: ['Java', 'SQL', 'Python'], position: 'Junior Backend Engineer'},
+  {firstName: 'Gary', lastName: 'February', email: 'gary.february@thebizz.com', phone: '+491234567124', description: 'Frontend developer with strong skills in JavaScript.', softSkills: ['Creativity', 'Communication', 'Adaptability'], hardSkills: ['JavaScript', 'HTML', 'CSS'], position: 'Frontend Developer'},
+  {firstName: 'Alex', lastName: 'Jäger Peña', email: 'alex.jaeger-pena@thebizz.com', phone: '+491234567125', description: 'Data analyst with experience in machine learning.', softSkills: ['Critical Thinking', 'Teamwork', 'Problem Solving'], hardSkills: ['SQL', 'Python', 'Java'], position: 'Data Analyst'},
+  {firstName: 'Eva', lastName: 'Smith', email: 'eva.smith@thebizz.com', phone: '+491234567126', description: 'Sales manager with expertise in Salesforce.', softSkills: ['Negotiation', 'Leadership', 'Networking'], hardSkills: ['Salesforce', 'JavaScript', 'CRM'], position: 'Sales Manager'},
+  {firstName: 'Liam', lastName: 'Johnson', email: 'liam.johnson@thebizz.com', phone: '+491234567127', description: 'HR specialist skilled in employee relations.', softSkills: ['Empathy', 'Communication', 'Conflict Resolution'], hardSkills: ['HRIS', 'Recruitment', 'SAP'], position: 'HR Specialist'},
+  {firstName: 'Olivia', lastName: 'Williams', email: 'olivia.williams@thebizz.com', phone: '+491234567128', description: 'Finance analyst with a background in financial reporting.', softSkills: ['Analytical Thinking', 'Decision Making', 'Time Management'], hardSkills: ['Excel', 'SAP', 'Financial Modeling'], position: 'Finance Analyst'},
+  {firstName: 'Noah', lastName: 'Brown', email: 'noah.brown@thebizz.com', phone: '+491234567129', description: 'Marketing manager with a focus on digital campaigns.', softSkills: ['Creativity', 'Strategic Thinking', 'Leadership'], hardSkills: ['SEO', 'PPC', 'Marketing Automation'], position: 'Marketing Manager'},
+  {firstName: 'Isabella', lastName: 'Davis', email: 'isabella.davis@thebizz.com', phone: '+491234567130', description: 'Customer support specialist with excellent communication skills.', softSkills: ['Communication', 'Empathy', 'Problem Solving'], hardSkills: ['CRM', 'Zendesk', 'Call Center Software'], position: 'Customer Service Specialist'},
+  {firstName: 'James', lastName: 'Miller', email: 'james.miller@thebizz.com', phone: '+491234567131', description: 'Operations manager with experience in process optimization.', softSkills: ['Leadership', 'Time Management', 'Adaptability'], hardSkills: ['Lean Six Sigma', 'ERP', 'Project Management'], position: 'Operations Manager'},
+  {firstName: 'Sophia', lastName: 'Wilson', email: 'sophia.wilson@thebizz.com', phone: '+491234567132', description: 'Product manager with a focus on product lifecycle management.', softSkills: ['Strategic Thinking', 'Problem Solving', 'Teamwork'], hardSkills: ['Product Management Software', 'Market Analysis', 'Agile'], position: 'Product Manager'},
+  {firstName: 'Mason', lastName: 'Taylor', email: 'mason.taylor@thebizz.com', phone: '+491234567133', description: 'IT manager with expertise in cloud computing.', softSkills: ['Leadership', 'Critical Thinking', 'Communication'], hardSkills: ['Cloud Computing', 'ITIL', 'Network Security'], position: 'IT Manager'},
+  {firstName: 'Ethan', lastName: 'Williams', email: 'ethan.williams@thebizz.com', phone: '+491234567134', description: 'Senior Backend Engineer with extensive experience in Java.', softSkills: ['Leadership', 'Problem Solving', 'Time Management'], hardSkills: ['Java', 'SQL', 'Cloud Computing'], position: 'Senior Backend Engineer'},
+  {firstName: 'Mia', lastName: 'Garcia', email: 'mia.garcia@thebizz.com', phone: '+491234567135', description: 'Senior Frontend Developer specializing in JavaScript and React.', softSkills: ['Creativity', 'Strategic Thinking', 'Communication'], hardSkills: ['JavaScript', 'React', 'CSS'], position: 'Senior Frontend Developer'},
+  {firstName: 'Lucas', lastName: 'Martinez', email: 'lucas.martinez@thebizz.com', phone: '+491234567136', description: 'Senior Data Analyst with expertise in machine learning.', softSkills: ['Critical Thinking', 'Teamwork', 'Adaptability'], hardSkills: ['Python', 'Machine Learning', 'Big Data'], position: 'Senior Data Analyst'},
+  {firstName: 'Emma', lastName: 'Hernandez', email: 'emma.hernandez@thebizz.com', phone: '+491234567137', description: 'Project Manager with a strong background in Agile methodologies.', softSkills: ['Leadership', 'Problem Solving', 'Time Management'], hardSkills: ['Agile', 'Project Management', 'Scrum'], position: 'Project Manager'},
+  {firstName: 'Oliver', lastName: 'Lopez', email: 'oliver.lopez@thebizz.com', phone: '+491234567138', description: 'Sales Manager with extensive experience in CRM systems.', softSkills: ['Negotiation', 'Leadership', 'Networking'], hardSkills: ['Salesforce', 'CRM', 'Sales Strategies'], position: 'Sales Manager'},
+  {firstName: 'Ava', lastName: 'Wilson', email: 'ava.wilson@thebizz.com', phone: '+491234567139', description: 'Finance Manager with expertise in financial forecasting.', softSkills: ['Analytical Thinking', 'Decision Making', 'Strategic Thinking'], hardSkills: ['Financial Modeling', 'Forecasting', 'Budgeting'], position: 'Finance Manager'},
+  {firstName: 'William', lastName: 'Taylor', email: 'william.taylor@thebizz.com', phone: '+491234567140', description: 'Operations Manager skilled in process improvement.', softSkills: ['Leadership', 'Adaptability', 'Time Management'], hardSkills: ['Lean Six Sigma', 'Operations Management', 'ERP'], position: 'Operations Manager'},
+  {firstName: 'Sophia', lastName: 'Anderson', email: 'sophia.anderson@thebizz.com', phone: '+491234567141', description: 'Legal Advisor with extensive experience in corporate law.', softSkills: ['Negotiation', 'Communication', 'Critical Thinking'], hardSkills: ['Corporate Law', 'Compliance', 'Contract Drafting'], position: 'Legal Advisor'},
+  {firstName: 'Liam', lastName: 'Thomas', email: 'liam.thomas@thebizz.com', phone: '+491234567142', description: 'Marketing Manager with expertise in digital strategy.', softSkills: ['Creativity', 'Leadership', 'Strategic Thinking'], hardSkills: ['SEO', 'PPC', 'Marketing Strategy'], position: 'Marketing Manager'},
+  {firstName: 'Isabella', lastName: 'Miller', email: 'isabella.miller@thebizz.com', phone: '+491234567143', description: 'Design Specialist focusing on UI/UX design.', softSkills: ['Creativity', 'Problem Solving', 'Teamwork'], hardSkills: ['UI/UX Design', 'Photoshop', 'Sketch'], position: 'Design Specialist'},
+  {firstName: 'Benjamin', lastName: 'Garcia', email: 'benjamin.garcia@thebizz.com', phone: '+491234567144', description: 'Product Manager with a strong focus on market analysis.', softSkills: ['Strategic Thinking', 'Problem Solving', 'Leadership'], hardSkills: ['Market Analysis', 'Product Lifecycle Management', 'Agile'], position: 'Product Manager'},
+  {firstName: 'Emily', lastName: 'Rodriguez', email: 'emily.rodriguez@thebizz.com', phone: '+491234567145', description: 'Cybersecurity Expert with experience in threat analysis.', softSkills: ['Critical Thinking', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Cybersecurity', 'Threat Analysis', 'Network Security'], position: 'Cybersecurity Expert'},
+  {firstName: 'Matthew', lastName: 'Lee', email: 'matthew.lee@thebizz.com', phone: '+491234567146', description: 'Customer Service Manager with a focus on improving customer satisfaction.', softSkills: ['Communication', 'Empathy', 'Problem Solving'], hardSkills: ['CRM', 'Customer Satisfaction', 'Team Management'], position: 'Customer Service Manager'},
+  {firstName: 'Charlotte', lastName: 'Wilson', email: 'charlotte.wilson@thebizz.com', phone: '+491234567147', description: 'Business Analyst with experience in data visualization.', softSkills: ['Analytical Thinking', 'Communication', 'Problem Solving'], hardSkills: ['Data Visualization', 'SQL', 'Excel'], position: 'Business Analyst'},
+  {firstName: 'Henry', lastName: 'Hall', email: 'henry.hall@thebizz.com', phone: '+491234567148', description: 'HR Manager with expertise in talent acquisition.', softSkills: ['Leadership', 'Communication', 'Negotiation'], hardSkills: ['Talent Acquisition', 'HRIS', 'Recruitment'], position: 'HR Manager'},
+  {firstName: 'Ella', lastName: 'Young', email: 'ella.young@thebizz.com', phone: '+491234567149', description: 'Software Engineer with a focus on cloud technologies.', softSkills: ['Problem Solving', 'Adaptability', 'Teamwork'], hardSkills: ['Cloud Computing', 'Python', 'Java'], position: 'Software Engineer'},
+  {firstName: 'Daniel', lastName: 'Adams', email: 'daniel.adams@thebizz.com', phone: '+491234567150', description: 'Database Administrator with extensive SQL experience.', softSkills: ['Attention to Detail', 'Analytical Thinking', 'Problem Solving'], hardSkills: ['SQL', 'Database Management', 'Data Analysis'], position: 'Database Administrator'},
+  {firstName: 'Mia', lastName: 'Scott', email: 'mia.scott@thebizz.com', phone: '+491234567151', description: 'Marketing Analyst with expertise in market research.', softSkills: ['Analytical Thinking', 'Communication', 'Creativity'], hardSkills: ['Market Research', 'Data Analysis', 'SEO'], position: 'Marketing Analyst'},
+  {firstName: 'Oliver', lastName: 'Parker', email: 'oliver.parker@thebizz.com', phone: '+491234567152', description: 'IT Support Specialist with experience in troubleshooting.', softSkills: ['Problem Solving', 'Communication', 'Patience'], hardSkills: ['Troubleshooting', 'ITIL', 'Technical Support'], position: 'IT Support Specialist'},
+  {firstName: 'Grace', lastName: 'Morgan', email: 'grace.morgan@thebizz.com', phone: '+491234567153', description: 'Legal Counsel with expertise in employment law.', softSkills: ['Negotiation', 'Critical Thinking', 'Attention to Detail'], hardSkills: ['Employment Law', 'Contract Law', 'Compliance'], position: 'Legal Counsel'},
+  {firstName: 'Jacob', lastName: 'Cook', email: 'jacob.cook@thebizz.com', phone: '+491234567154', description: 'Content Strategist with a focus on digital media.', softSkills: ['Creativity', 'Strategic Thinking', 'Communication'], hardSkills: ['Content Strategy', 'Digital Media', 'SEO'], position: 'Content Strategist'},
+  {firstName: 'Lily', lastName: 'Wood', email: 'lily.wood@thebizz.com', phone: '+491234567155', description: 'UX Designer specializing in user-centered design.', softSkills: ['Creativity', 'Problem Solving', 'Teamwork'], hardSkills: ['UX Design', 'Wireframing', 'Prototyping'], position: 'UX Designer'},
+  {firstName: 'James', lastName: 'Morris', email: 'james.morris@thebizz.com', phone: '+491234567156', description: 'Systems Analyst with expertise in software integration.', softSkills: ['Analytical Thinking', 'Problem Solving', 'Communication'], hardSkills: ['Software Integration', 'Systems Analysis', 'Technical Documentation'], position: 'Systems Analyst'},
+  {firstName: 'Hannah', lastName: 'Murphy', email: 'hannah.murphy@thebizz.com', phone: '+491234567157', description: 'Product Designer with experience in industrial design.', softSkills: ['Creativity', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Industrial Design', 'Product Design', 'CAD'], position: 'Product Designer'},
+  {firstName: 'Matthew', lastName: 'Baker', email: 'matthew.baker@thebizz.com', phone: '+491234567158', description: 'Digital Marketing Specialist with a focus on content marketing.', softSkills: ['Creativity', 'Strategic Thinking', 'Communication'], hardSkills: ['Content Marketing', 'SEO', 'Social Media'], position: 'Digital Marketing Specialist'},
+  {firstName: 'Avery', lastName: 'Watson', email: 'avery.watson@thebizz.com', phone: '+491234567159', description: 'Business Development Manager with experience in partnership management.', softSkills: ['Negotiation', 'Networking', 'Strategic Thinking'], hardSkills: ['Partnership Management', 'Business Development', 'Sales Strategies'], position: 'Business Development Manager'},
+  {firstName: 'Jack', lastName: 'Reed', email: 'jack.reed@thebizz.com', phone: '+491234567160', description: 'Full Stack Developer with experience in modern web technologies.', softSkills: ['Problem Solving', 'Adaptability', 'Teamwork'], hardSkills: ['Full Stack Development', 'JavaScript', 'Node.js'], position: 'Full Stack Developer'},
+  {firstName: 'Emily', lastName: 'Simmons', email: 'emily.simmons@thebizz.com', phone: '+491234567161', description: 'Public Relations Specialist with a focus on media relations.', softSkills: ['Communication', 'Networking', 'Problem Solving'], hardSkills: ['Media Relations', 'Public Relations', 'Crisis Management'], position: 'Public Relations Specialist'},
+  {firstName: 'Henry', lastName: 'Ward', email: 'henry.ward@thebizz.com', phone: '+491234567162', description: 'Quality Assurance Engineer with experience in automated testing.', softSkills: ['Attention to Detail', 'Problem Solving', 'Analytical Thinking'], hardSkills: ['Automated Testing', 'Quality Assurance', 'Test Planning'], position: 'Quality Assurance Engineer'},
+  {firstName: 'Zoe', lastName: 'Gray', email: 'zoe.gray@thebizz.com', phone: '+491234567163', description: 'Business Intelligence Analyst with a focus on data visualization.', softSkills: ['Analytical Thinking', 'Communication', 'Problem Solving'], hardSkills: ['Data Visualization', 'BI Tools', 'Data Analysis'], position: 'Business Intelligence Analyst'},
+  {firstName: 'Mason', lastName: 'Ramirez', email: 'mason.ramirez@thebizz.com', phone: '+491234567164', description: 'DevOps Engineer with experience in CI/CD pipelines.', softSkills: ['Problem Solving', 'Adaptability', 'Teamwork'], hardSkills: ['CI/CD', 'DevOps', 'Automation'], position: 'DevOps Engineer'},
+  {firstName: 'Olivia', lastName: 'Young', email: 'olivia.young@thebizz.com', phone: '+491234567165', description: 'Cloud Architect specializing in cloud infrastructure design.', softSkills: ['Strategic Thinking', 'Problem Solving', 'Adaptability'], hardSkills: ['Cloud Architecture', 'AWS', 'Azure'], position: 'Cloud Architect'},
+  {firstName: 'Daniel', lastName: 'Adams', email: 'daniel.adams@thebizz.com', phone: '+491234567166', description: 'Network Engineer with a focus on network security.', softSkills: ['Problem Solving', 'Attention to Detail', 'Communication'], hardSkills: ['Network Security', 'Network Design', 'Cisco'], position: 'Network Engineer'},
+  {firstName: 'Grace', lastName: 'Foster', email: 'grace.foster@thebizz.com', phone: '+491234567167', description: 'Data Scientist with experience in statistical analysis.', softSkills: ['Analytical Thinking', 'Problem Solving', 'Communication'], hardSkills: ['Statistical Analysis', 'Data Science', 'Machine Learning'], position: 'Data Scientist'},
+  {firstName: 'Ethan', lastName: 'Martin', email: 'ethan.martin@thebizz.com', phone: '+491234567168', description: 'IT Consultant with expertise in IT strategy and management.', softSkills: ['Strategic Thinking', 'Communication', 'Problem Solving'], hardSkills: ['IT Strategy', 'Consulting', 'Management'], position: 'IT Consultant'},
+  {firstName: 'Charlotte', lastName: 'Miller', email: 'charlotte.miller@thebizz.com', phone: '+491234567169', description: 'Research Scientist with experience in clinical trials.', softSkills: ['Analytical Thinking', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Clinical Trials', 'Research', 'Data Analysis'], position: 'Research Scientist'},
+  {firstName: 'James', lastName: 'Mitchell', email: 'james.mitchell@thebizz.com', phone: '+491234567170', description: 'Digital Designer with a focus on mobile app design.', softSkills: ['Creativity', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Mobile App Design', 'Graphic Design', 'UX Design'], position: 'Digital Designer'},
+  {firstName: 'Emma', lastName: 'Lee', email: 'emma.lee@thebizz.com', phone: '+491234567171', description: 'Content Writer with a focus on technical writing.', softSkills: ['Writing', 'Research', 'Attention to Detail'], hardSkills: ['Technical Writing', 'Content Creation', 'SEO'], position: 'Content Writer'},
+  {firstName: 'Lucas', lastName: 'Walker', email: 'lucas.walker@thebizz.com', phone: '+491234567172', description: 'Financial Analyst with expertise in budgeting and forecasting.', softSkills: ['Analytical Thinking', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Budgeting', 'Forecasting', 'Financial Analysis'], position: 'Financial Analyst'},
+  {firstName: 'Sophia', lastName: 'Harris', email: 'sophia.harris@thebizz.com', phone: '+491234567173', description: 'Sales Manager with experience in B2B sales.', softSkills: ['Negotiation', 'Leadership', 'Communication'], hardSkills: ['B2B Sales', 'Sales Strategies', 'CRM'], position: 'Sales Manager'},
+  {firstName: 'Benjamin', lastName: 'Jenkins', email: 'benjamin.jenkins@thebizz.com', phone: '+491234567174', description: 'Operations Manager with expertise in supply chain management.', softSkills: ['Leadership', 'Problem Solving', 'Communication'], hardSkills: ['Supply Chain Management', 'Operations Management', 'Logistics'], position: 'Operations Manager'},
+  {firstName: 'Isabella', lastName: 'Watson', email: 'isabella.watson@thebizz.com', phone: '+491234567175', description: 'Graphic Designer with a focus on branding.', softSkills: ['Creativity', 'Attention to Detail', 'Communication'], hardSkills: ['Branding', 'Graphic Design', 'Adobe Creative Suite'], position: 'Graphic Designer'},
+  {firstName: 'Michael', lastName: 'Johnson', email: 'michael.johnson@thebizz.com', phone: '+491234567176', description: 'Security Analyst with experience in threat assessment.', softSkills: ['Analytical Thinking', 'Problem Solving', 'Attention to Detail'], hardSkills: ['Threat Assessment', 'Security Management', 'Risk Analysis'], position: 'Security Analyst'},
+  {firstName: 'Emily', lastName: 'Thompson', email: 'emily.thompson@thebizz.com', phone: '+491234567177', description: 'Product Manager with experience in agile methodologies.', softSkills: ['Leadership', 'Strategic Thinking', 'Communication'], hardSkills: ['Agile Methodologies', 'Product Development', 'Project Management'], position: 'Product Manager'}
